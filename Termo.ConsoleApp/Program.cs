@@ -7,15 +7,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        while (true)
-        {
-            Console.Clear();
-            System.Console.WriteLine("------------------------------------");
-            System.Console.WriteLine("TERMO [5 LETRAS]");
-            System.Console.WriteLine("------------------------------------");
-
-            string[] palavras =
-            {
+        string[] palavras =
+           {
             "AFOIS",
             "BIRRA",
             "CABRA",
@@ -38,12 +31,25 @@ class Program
             "TUFOS"
         };
 
-            int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
+        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
 
-            string palavraSecreta = palavras[19];
+        string palavraSecreta = palavras[19];
+        int tentativas = 5;
+
+
+
+        while (tentativas != 0)
+        {
+            Console.Clear();
+            System.Console.WriteLine("------------------------------------");
+            System.Console.WriteLine("TERMO [5 LETRAS]");
+            System.Console.WriteLine("------------------------------------");
+
+
 
             //logica
 
+            System.Console.WriteLine($"Tentativas: {tentativas}");
             System.Console.Write("Digite uma palavra: ");
             string? palavraChutada = Console.ReadLine()?.ToUpper();
 
@@ -83,6 +89,7 @@ class Program
 
             }
 
+            Console.ReadLine();
 
             if (palavraChutada == palavraSecreta)
             {
@@ -91,11 +98,13 @@ class Program
             }
             else
             {
-                System.Console.WriteLine($"Voce errou! A palavra era: {palavraSecreta}");
-                break;
+                tentativas--;
+                continue;
             }
 
+
         }
+        System.Console.WriteLine("Voce perdeu! ");
     }
 
 }
