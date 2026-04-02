@@ -1,4 +1,6 @@
-﻿namespace Termo.ConsoleApp;
+﻿using System.Security.Cryptography;
+
+namespace Termo.ConsoleApp;
 
 class Program
 {
@@ -7,6 +9,34 @@ class Program
         System.Console.WriteLine("------------------------------------");
         System.Console.WriteLine("TERMO [5 LETRAS]");
         System.Console.WriteLine("------------------------------------");
+
+        string[] palavras =
+        {
+            "AFOIS",
+            "BIRRA",
+            "CABRA",
+            "DADOS",
+            "ECHOS",
+            "FAROL",
+            "GOLPE",
+            "HORAS",
+            "IDEAL",
+            "JOGOS",
+            "KILOS",
+            "LACOS",
+            "MAGOS",
+            "NAVES",
+            "OLHOS",
+            "PILOS",
+            "QUINA",
+            "RACAS",
+            "SALAS",
+            "TUFOS"
+        };
+
+        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
+
+        string palavraAleatoria = palavras[indiceAleatorio];
 
     }
 }
