@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        System.Console.WriteLine("------------------------------------");
+        System.Console.WriteLine("TERMO [5 LETRAS]");
+        System.Console.WriteLine("------------------------------------");
+
     }
 }
