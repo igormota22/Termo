@@ -6,6 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         System.Console.WriteLine("------------------------------------");
         System.Console.WriteLine("TERMO [5 LETRAS]");
         System.Console.WriteLine("------------------------------------");
@@ -43,7 +44,13 @@ class Program
         System.Console.Write("Digite uma palavra: ");
         string? palavraChutada = Console.ReadLine()?.ToUpper();
 
-        if(palavraChutada == palavraAleatoria)
+        if (palavraChutada == "" || palavraChutada?.Length > 5)
+        {
+            System.Console.WriteLine("Digite uma palavra valida de 5 letras");
+        }
+
+
+        if (palavraChutada == palavraAleatoria)
         {
             System.Console.WriteLine("Voce acertou!");
         }
