@@ -5,55 +5,26 @@ namespace Termo.ConsoleApp;
 
 class Program
 {
+
     static void Main(string[] args)
     {
-        string[] palavras =
-           {
-            "AFOIS",
-            "BIRRA",
-            "CABRA",
-            "DADOS",
-            "ECHOS",
-            "FAROL",
-            "GOLPE",
-            "HORAS",
-            "IDEAL",
-            "JOGOS",
-            "KILOS",
-            "LACOS",
-            "MAGOS",
-            "NAVES",
-            "OLHOS",
-            "PILOS",
-            "QUINA",
-            "RACAS",
-            "SALAS",
-            "TUFOS"
-        };
 
-        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
-
-        string palavraSecreta = palavras[19];
         int tentativas = 5;
-
 
 
         while (tentativas != 0)
         {
             Console.Clear();
-            System.Console.WriteLine("------------------------------------");
-            System.Console.WriteLine("TERMO [5 LETRAS]");
-            System.Console.WriteLine("------------------------------------");
-
-
+            ExibirCabecalho();
+            string palavraSecreta = SortearPalavraSecreta();
 
             //logica
 
             System.Console.WriteLine($"Tentativas: {tentativas}");
-            System.Console.Write("Digite uma palavra: ");
+            System.Console.Write(">");
             string? palavraChutada = Console.ReadLine()?.ToUpper();
 
-            if (string.IsNullOrEmpty(palavraChutada) || palavraChutada?.Length > 5 || palavraChutada?.Length < 5 || !Regex.IsMatch(palavraChutada ?? "", @"^[A-Z]+$"))
+            if (string.IsNullOrEmpty(palavraChutada) || palavraChutada?.Length != 5 || !Regex.IsMatch(palavraChutada ?? "", @"^[A-Z]+$"))
             {
                 System.Console.WriteLine("Digite uma palavra valida de 5 letras(apenas letras).Pressione ENTER para tentar novamente");
                 Console.ReadLine();
@@ -105,6 +76,46 @@ class Program
 
         }
         System.Console.WriteLine("Voce perdeu! ");
+    }
+
+    static void ExibirCabecalho()
+    {
+        System.Console.WriteLine("------------------------------------");
+        System.Console.WriteLine("TERMO [5 LETRAS]");
+        System.Console.WriteLine("------------------------------------");
+
+    }
+
+    static string SortearPalavraSecreta()
+    {
+        string[] palavras =
+           {
+            "AFOIS",
+            "BIRRA",
+            "CABRA",
+            "DADOS",
+            "ECHOS",
+            "FAROL",
+            "GOLPE",
+            "HORAS",
+            "IDEAL",
+            "JOGOS",
+            "KILOS",
+            "LACOS",
+            "MAGOS",
+            "NAVES",
+            "OLHOS",
+            "PILOS",
+            "QUINA",
+            "RACAS",
+            "SALAS",
+            "TUFOS"
+        };
+
+        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
+
+
+        return palavras[indiceAleatorio];
     }
 
 }
