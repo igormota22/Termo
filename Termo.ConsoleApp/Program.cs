@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace Termo.ConsoleApp;
 
@@ -46,9 +47,9 @@ class Program
             System.Console.Write("Digite uma palavra: ");
             string? palavraChutada = Console.ReadLine()?.ToUpper();
 
-            if (palavraChutada == "" || palavraChutada?.Length > 5 || palavraChutada?.Length < 5)
+            if (string.IsNullOrEmpty(palavraChutada) || palavraChutada?.Length > 5 || palavraChutada?.Length < 5 || !Regex.IsMatch(palavraChutada ?? "", @"^[A-Z]+$"))
             {
-                System.Console.WriteLine("Digite uma palavra valida de 5 letras.Pressione ENTER para tentar novamente");
+                System.Console.WriteLine("Digite uma palavra valida de 5 letras(apenas letras).Pressione ENTER para tentar novamente");
                 Console.ReadLine();
                 continue;
             }
