@@ -9,21 +9,9 @@ class Program
     {
 
         //Console.Clear();
-        ExibirCabecalho();
-        Jogo.CompararPalavras();
+        Jogo.Executar();
 
     }
-
-    static void ExibirCabecalho()
-    {
-        System.Console.WriteLine("------------------------------------");
-        System.Console.WriteLine("TERMO [5 LETRAS]");
-        System.Console.WriteLine("------------------------------------");
-
-    }
-
-
-
 
 }
 

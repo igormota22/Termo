@@ -6,36 +6,16 @@ namespace Termo.ConsoleApp;
 
 static class Jogo
 {
-    static string palavraSecreta = "";
-    private static void SortearPalavraSecreta()
-    {
-        string[] palavras =
-           {
-            "AFOIS",
-            "BIRRA",
-            "CABRA",
-            "DADOS",
-            "ECHOS",
-            "FAROL",
-            "GOLPE",
-            "HORAS",
-            "IDEAL",
-            "JOGOS",
-            "KILOS",
-            "LACOS",
-            "MAGOS",
-            "NAVES",
-            "OLHOS",
-            "PILOS",
-            "QUINA",
-            "RACAS",
-            "SALAS",
-            "TUFOS"
-        };
 
-        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
-        palavraSecreta = palavras[indiceAleatorio];
+    static void ExibirCabecalho()
+    {
+        System.Console.WriteLine("------------------------------------");
+        System.Console.WriteLine("TERMO [5 LETRAS]");
+        System.Console.WriteLine("------------------------------------");
+
     }
+
+    static string palavraSecreta = "";
 
     public static void CompararPalavras()
     {
@@ -88,7 +68,7 @@ static class Jogo
 
             if (palavraChutada == palavraSecreta)
             {
-                System.Console.WriteLine("Voce acertou!");
+                System.Console.WriteLine("Voce acertou!Pressione ENTER para sair");
                 break;
             }
             else
@@ -98,7 +78,45 @@ static class Jogo
             }
         }
 
-        System.Console.WriteLine($"Voce perdeu! A palavra era: {palavraSecreta} ");
+        System.Console.WriteLine($"Voce perdeu! A palavra era: {palavraSecreta} Pressione ENTER para sair ");
+    }
+
+    public static void Executar()
+    {
+        ExibirCabecalho();
+        CompararPalavras();
+
+    }
+
+
+    private static void SortearPalavraSecreta()
+    {
+        string[] palavras =
+           {
+            "AFOIS",
+            "BIRRA",
+            "CABRA",
+            "DADOS",
+            "ECHOS",
+            "FAROL",
+            "GOLPE",
+            "HORAS",
+            "IDEAL",
+            "JOGOS",
+            "KILOS",
+            "LACOS",
+            "MAGOS",
+            "NAVES",
+            "OLHOS",
+            "PILOS",
+            "QUINA",
+            "RACAS",
+            "SALAS",
+            "TUFOS"
+        };
+
+        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
+        palavraSecreta = palavras[indiceAleatorio];
     }
 }
 
