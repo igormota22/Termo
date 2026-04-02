@@ -40,7 +40,7 @@ class Program
 
             int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
 
-            string palavraAleatoria = palavras[indiceAleatorio];
+            string palavraSecreta = palavras[19];
 
             //logica
 
@@ -54,15 +54,44 @@ class Program
                 continue;
             }
 
+            for (int indiceLetra = 0; indiceLetra < palavraChutada.Length; indiceLetra++)
+            {
+                if (palavraChutada[indiceLetra] == palavraSecreta[indiceLetra])
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    System.Console.Write(palavraChutada[indiceLetra]);
+                    Console.ForegroundColor = ConsoleColor.White;
 
-            if (palavraChutada == palavraAleatoria)
+                }
+                else if (palavraSecreta.Contains(palavraChutada[indiceLetra]))
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+                    System.Console.Write(palavraChutada[indiceLetra]);
+
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+
+                    System.Console.Write(palavraChutada[indiceLetra]);
+
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                }
+
+            }
+
+
+            if (palavraChutada == palavraSecreta)
             {
                 System.Console.WriteLine("Voce acertou!");
                 break;
             }
             else
             {
-                System.Console.WriteLine($"Voce errou! A palavra era: {palavraAleatoria}");
+                System.Console.WriteLine($"Voce errou! A palavra era: {palavraSecreta}");
                 break;
             }
 
