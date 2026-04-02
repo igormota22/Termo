@@ -38,5 +38,19 @@ class Program
 
         string palavraAleatoria = palavras[indiceAleatorio];
 
+        //logica
+
+        System.Console.Write("Digite uma palavra: ");
+        string? palavraChutada = Console.ReadLine()?.ToUpper();
+
+        if(palavraChutada == palavraAleatoria)
+        {
+            System.Console.WriteLine("Voce acertou!");
+        }
+        else
+        {
+            System.Console.WriteLine("Voce errou!");
+        }
+
     }
 }
