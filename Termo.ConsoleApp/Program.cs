@@ -6,13 +6,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Clear();
-        System.Console.WriteLine("------------------------------------");
-        System.Console.WriteLine("TERMO [5 LETRAS]");
-        System.Console.WriteLine("------------------------------------");
-
-        string[] palavras =
+        while (true)
         {
+            Console.Clear();
+            System.Console.WriteLine("------------------------------------");
+            System.Console.WriteLine("TERMO [5 LETRAS]");
+            System.Console.WriteLine("------------------------------------");
+
+            string[] palavras =
+            {
             "AFOIS",
             "BIRRA",
             "CABRA",
@@ -35,29 +37,35 @@ class Program
             "TUFOS"
         };
 
-        int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
+            int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length);
 
-        string palavraAleatoria = palavras[indiceAleatorio];
+            string palavraAleatoria = palavras[indiceAleatorio];
 
-        //logica
+            //logica
 
-        System.Console.Write("Digite uma palavra: ");
-        string? palavraChutada = Console.ReadLine()?.ToUpper();
+            System.Console.Write("Digite uma palavra: ");
+            string? palavraChutada = Console.ReadLine()?.ToUpper();
 
-        if (palavraChutada == "" || palavraChutada?.Length > 5)
-        {
-            System.Console.WriteLine("Digite uma palavra valida de 5 letras");
+            if (palavraChutada == "" || palavraChutada?.Length > 5 || palavraChutada?.Length < 5)
+            {
+                System.Console.WriteLine("Digite uma palavra valida de 5 letras.Pressione ENTER para tentar novamente");
+                Console.ReadLine();
+                continue;
+            }
+
+
+            if (palavraChutada == palavraAleatoria)
+            {
+                System.Console.WriteLine("Voce acertou!");
+                break;
+            }
+            else
+            {
+                System.Console.WriteLine($"Voce errou! A palavra era: {palavraAleatoria}");
+                break;
+            }
+
         }
-
-
-        if (palavraChutada == palavraAleatoria)
-        {
-            System.Console.WriteLine("Voce acertou!");
-        }
-        else
-        {
-            System.Console.WriteLine("Voce errou!");
-        }
-
     }
+
 }
