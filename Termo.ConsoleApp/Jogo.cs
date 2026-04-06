@@ -34,7 +34,7 @@ static class Jogo
                 continue;
             }
 
-            for (int indiceLetra = 0; indiceLetra < palavraChutada.Length; indiceLetra++)
+            for (int indiceLetra = 0; indiceLetra < palavraChutada?.Length; indiceLetra++)
             {
                 if (palavraChutada[indiceLetra] == palavraSecreta[indiceLetra])
                 {
@@ -69,6 +69,7 @@ static class Jogo
             if (palavraChutada == palavraSecreta)
             {
                 System.Console.WriteLine("Voce acertou!Pressione ENTER para sair");
+                Console.ReadLine();
                 break;
             }
             else
@@ -78,7 +79,9 @@ static class Jogo
             }
         }
 
-        System.Console.WriteLine($"Voce perdeu! A palavra era: {palavraSecreta} Pressione ENTER para sair ");
+        System.Console.WriteLine($"Voce perdeu! Pressione ENTER para sair ");
+        Console.ReadLine();
+
     }
 
     public static void Executar()
